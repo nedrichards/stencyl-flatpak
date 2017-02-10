@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Stencyl
+GenericName=Create games
+Comment=Create amazing games without code
+Exec=stencyl
+Icon=com.stencyl.Game
+Terminal=false
+Categories=Development;IDE;
