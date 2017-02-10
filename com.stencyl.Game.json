@@ -12,7 +12,33 @@
         "--filesystem=host"
     ],
     "modules": [
-					{
+				{
+          "name": "xmlto",
+          "cleanup-platform": [ "*" ],
+          "no-autogen": true,
+          "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://fedorahosted.org/releases/x/m/xmlto/xmlto-0.0.28.tar.gz",
+                    "sha256": "2f986b7c9a0e9ac6728147668e776d405465284e13c74d4146c9cbc51fd8aad3"
+                }
+          ]
+        },
+        {
+          "name": "xdg-utils",
+          "sources": [
+              {
+                  "type": "git",
+                  "url": "git://anongit.freedesktop.org/xdg/xdg-utils",
+                  "branch": "09c51e937e61c735bcfb1422ab4883626f33f900"
+              },
+              {
+                  "type": "patch",
+                  "path": "xdg-utils-no-lynx-dependency.patch"
+              }
+          ]
+      },	
+        {
             "name": "stencyl",
             "no-autogen": true,
             "sources": [
@@ -37,6 +63,11 @@
                     "type": "file",
                     "path": "stencyl.sh",
                     "dest-filename": "stencyl.sh"
+                },
+                {
+                    "type": "file",
+                    "path": "firefox",
+                    "dest-filename": "firefox"
                 },
                 {
                     "type": "file",
