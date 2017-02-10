@@ -14,6 +14,23 @@
     ],
     "modules": [
 				{
+          "name": "libgc",
+          "no-autogen": true,
+          "sources": [
+                {
+                    "type": "file",
+                    "url": "http://de.archive.ubuntu.com/ubuntu/pool/main/libg/libgc/libgc1c2_7.4.2-8_amd64.deb",
+                    "sha256": "f45cf311444ecf1c3170412c5ad4ae3e6ba8d66cc7c3e59ff6177d1c29d2c651",
+                    "dest-filename": "libgc.deb"
+                },
+                {
+                    "type": "file",
+                    "path": "deb-Makefile",
+                    "dest-filename": "Makefile"
+                }
+          ]
+        },
+				{
           "name": "xmlto",
           "cleanup-platform": [ "*" ],
           "no-autogen": true,
@@ -38,7 +55,7 @@
                   "path": "xdg-utils-no-lynx-dependency.patch"
               }
           ]
-      },	
+        },
         {
             "name": "stencyl",
             "no-autogen": true,
