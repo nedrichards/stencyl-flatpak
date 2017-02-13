@@ -13,7 +13,17 @@
         "--filesystem=host"
     ],
     "modules": [
-				{
+        {
+          "name": "libxext",
+          "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://archive.ubuntu.com/ubuntu/pool/main/libx/libxext/libxext_1.3.0.orig.tar.gz",
+                    "sha256": "471a4343940f62985274ee411cd1f7d04cb8090b1e8fd15513d5c064851752fe"
+                }
+          ]
+        },
+        {
           "name": "libgc",
           "no-autogen": true,
           "sources": [
@@ -77,6 +87,21 @@
             "name": "resources",
             "no-autogen": true,
             "sources": [
+                {
+                    "type": "file",
+                    "path": "com.stencyl.Game.desktop",
+                    "dest-filename": "com.stencyl.Game.desktop"
+                },
+                {
+                    "type": "file",
+                    "path": "com.stencyl.Game.appdata.xml",
+                    "dest-filename": "com.stencyl.Game.appdata.xml"
+                },
+                {
+                    "type": "file",
+                    "path": "com.stencyl.Game.png",
+                    "dest-filename": "com.stencyl.Game.png"
+                },
                 {
                     "type": "file",
                     "path": "stencyl.sh",
