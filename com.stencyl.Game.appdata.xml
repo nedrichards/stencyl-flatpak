@@ -7,7 +7,7 @@
   <description>
     <p>
     Stencyl is the easiest way to create games for mobile, web and desktop without code.
-		</p>
+    </p>
   </description>
   <url type="homepage">http://www.stencyl.com/</url>
   <screenshots>
@@ -17,5 +17,6 @@
   </screenshots>
   <project_license>DMCA</project_license>
   <developer_name>Stencyl, LLC</developer_name>
+  <url type="bugtracker">http://community.stencyl.com/index.php?project=1;area=issues;tracker=bug</url>
   <url type="help">http://www.stencyl.com/help/</url>
 </component>
