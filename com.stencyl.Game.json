@@ -10,10 +10,11 @@
         "--share=ipc",
         "--share=network",
         "--device=all",
-        "--filesystem=host"
+        "--filesystem=host",
+        "--extra-data=Stencyl-64-full.tar.gz:c27d00dc83b5f443c35d785a0d22340f35c1cdb289c8cfe30417963475d4af29:207725021::http://mario.stencyl.net/public/Stencyl-64-full.tar.gz"
     ],
     "modules": [
-        {
+      {
           "name": "libxext",
           "sources": [
                 {
@@ -67,23 +68,6 @@
           ]
         },
         {
-            "name": "stencyl",
-            "no-autogen": true,
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "http://mario.stencyl.net/public/Stencyl-64-full.tar.gz",
-                    "strip-components": 0,
-                    "sha256": "24251240dd9719a01c741b353e35da776097885602ccedb81b00ad81daef3ac6"
-                },
-                {
-                    "type": "file",
-                    "path": "stencyl-Makefile",
-                    "dest-filename": "Makefile"
-                }
-            ]
-        },
-        {
             "name": "resources",
             "no-autogen": true,
             "sources": [
@@ -111,6 +95,11 @@
                     "type": "file",
                     "path": "firefox",
                     "dest-filename": "firefox"
+                },
+                {
+                    "type": "file",
+                    "path": "apply_extra",
+                    "dest-filename": "apply_extra"
                 },
                 {
                     "type": "file",

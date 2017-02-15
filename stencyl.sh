@@ -1,3 +1,3 @@
 #!/bin/sh
 
-exec /app/stencyl/Stencyl
+exec /app/extra/Stencyl

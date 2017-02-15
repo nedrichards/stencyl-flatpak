@@ -1,0 +1,3 @@
+#!/bin/sh
+
+tar -xzvf Stencyl-64-full.tar.gz
