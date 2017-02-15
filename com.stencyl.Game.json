@@ -14,6 +14,16 @@
         "--extra-data=Stencyl-64-full.tar.gz:c27d00dc83b5f443c35d785a0d22340f35c1cdb289c8cfe30417963475d4af29:207725021::http://mario.stencyl.net/public/Stencyl-64-full.tar.gz"
     ],
     "modules": [
+        {
+          "name": "killall",
+          "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.com/psmisc/psmisc.git",
+                    "sha256": "a15a4d0f921fb174e25c86aa13fdf3006efa33fbf9725a9d70dd3b0b2655d013"
+                }
+          ]
+        },
       {
           "name": "libxext",
           "sources": [
