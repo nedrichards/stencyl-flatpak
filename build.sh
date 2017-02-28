@@ -2,11 +2,6 @@
 
 set -e
 
-if [[ ! -d repo ]]
-then
-    ostree  init --mode=archive-z2 --repo=repo
-fi
-
 flatpak-builder \
     --force-clean \
     --ccache \
@@ -14,5 +9,5 @@ flatpak-builder \
     --repo=repo \
     --arch=$(flatpak --default-arch) \
     --subject="build of stencyl, $(date)" \
-    buil \
+    build \
     com.stencyl.Game.json
