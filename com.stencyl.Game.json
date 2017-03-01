@@ -114,33 +114,27 @@
                 },
                 {
                     "type": "file",
-                    "path": "com.stencyl.Game.desktop",
-                    "dest-filename": "com.stencyl.Game.desktop"
+                    "path": "com.stencyl.Game.desktop"
                 },
                 {
                     "type": "file",
-                    "path": "com.stencyl.Game.appdata.xml",
-                    "dest-filename": "com.stencyl.Game.appdata.xml"
+                    "path": "com.stencyl.Game.appdata.xml"
                 },
                 {
                     "type": "file",
-                    "path": "com.stencyl.Game.png",
-                    "dest-filename": "com.stencyl.Game.png"
+                    "path": "com.stencyl.Game.png"
                 },
                 {
                     "type": "file",
-                    "path": "stencyl.sh",
-                    "dest-filename": "stencyl.sh"
+                    "path": "stencyl.sh"
                 },
                 {
                     "type": "file",
-                    "path": "firefox",
-                    "dest-filename": "firefox"
+                    "path": "firefox"
                 },
                 {
                     "type": "file",
-                    "path": "apply_extra",
-                    "dest-filename": "apply_extra"
+                    "path": "apply_extra"
                 },
                 {
                     "type": "file",
