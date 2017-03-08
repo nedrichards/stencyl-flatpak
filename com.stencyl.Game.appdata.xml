@@ -3,10 +3,10 @@
   <id>com.stencyl.Game.desktop</id>
   <name>Stencyl</name>
   <metadata_license>CC0-1.0</metadata_license>
-  <summary>Create games without code.</summary>
+  <summary>Create games without code</summary>
   <description>
     <p>
-    Stencyl is the easiest way to create games for mobile, web and desktop without code.
+      Stencyl is the easiest way to create games for mobile, web and desktop without code.
     </p>
   </description>
   <url type="homepage">http://www.stencyl.com/</url>
