@@ -8,10 +8,3 @@ install:
 	install -D com.stencyl.Game.png /app/share/icons/hicolor/128x128/apps/com.stencyl.Game.png
 	install -D com.stencyl.Game.appdata.xml /app/share/appdata/com.stencyl.Game.appdata.xml
 	install -D apply_extra /app/bin/apply_extra
-	
-	# Stencyl is a closed source software, so we couldn't build it. 
-	# Instead we got a binary package which was likely built on Ubuntu, 
-	# where the pcre library is installed as libpcre.so.3, 
-	# Similar (API compatible) pcre in the flatpak runtime is libpcre.so.1,
-	# so we create a symlink.
-	ln -s /usr/lib/libpcre.so.1 /app/lib/libpcre.so.3

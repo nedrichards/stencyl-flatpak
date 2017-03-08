@@ -11,107 +11,13 @@
         "--share=network",
         "--device=all",
         "--filesystem=host",
-        "--allow=multiarch",
-        "--env=JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64",
         "--extra-data=Stencyl-64-full.tar.gz:c27d00dc83b5f443c35d785a0d22340f35c1cdb289c8cfe30417963475d4af29:207725021::http://mario.stencyl.net/public/Stencyl-64-full.tar.gz"
     ],
     "modules": [
         {
-          "name": "libxext",
-          "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://www.x.org/archive//individual/lib/libXext-1.3.0.tar.bz2",
-                    "sha256": "e9daeb400855b9836e328500cec356b2769033174fc1b2be0df4a80f031debc0"
-                }
-          ]
-        },
-        {
-          "name": "libgc",
-          "no-autogen": true,
-          "sources": [
-                {
-                    "type": "file",
-                    "url": "http://de.archive.ubuntu.com/ubuntu/pool/main/libg/libgc/libgc1c2_7.4.2-8_amd64.deb",
-                    "sha256": "f45cf311444ecf1c3170412c5ad4ae3e6ba8d66cc7c3e59ff6177d1c29d2c651",
-                    "dest-filename": "libgc.deb"
-                },
-                {
-                    "type": "file",
-                    "path": "deb-Makefile",
-                    "dest-filename": "Makefile"
-                }
-          ]
-        },
-        {
-            "name": "java&resources",
+            "name": "resources",
             "no-autogen": true,
             "sources": [
-                {
-                    "type": "file",
-                    "url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-6/openjdk-6-jre-lib_6b38-1.13.10-1~deb7u1_all.deb",
-                    "sha256": "6fe828347a71955650c6a0b082eb36cd9e8b054823570da1fec5cb51bf083791",
-                    "dest": "jdk6-debs"
-                },
-                {
-                    "type": "file",
-                    "url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-6/openjdk-6-jdk_6b38-1.13.10-1~deb7u1_amd64.deb",
-                    "sha256": "c51cdf7c64267c4816bf6230b239e2f3d8f3e6944358e9cf6aa6b1d6d3c4a54e",
-                    "dest": "jdk6-debs"
-                },
-                {
-                    "type": "file",
-                    "url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-6/openjdk-6-jre-headless_6b38-1.13.10-1~deb7u1_amd64.deb",
-                    "sha256": "fdfa1442b906e62a46a82a582e48b0b6b3e67611b569606678107536a2e333ce",
-                    "dest": "jdk6-debs"
-                },
-                {
-                    "type": "file",
-                    "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/g/glibc/libc6-i386_2.19-18+deb8u4endless4bem1_amd64.deb",
-                    "sha256": "3a6af8b16fba82b84fb6feb7d7abda854a94828c8653d80177763eb146ee2fc1",
-                    "dest": "lib32-debs"
-                },
-                {
-                    "type": "file",
-                    "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/z/zlib/lib32z1_1.2.8.dfsg-2bem1_amd64.deb",
-                    "sha256": "029546b88c7653397f2abb93da4f40931e9163f06a8a99e9272068d5061b2a45",
-                    "dest": "lib32-debs"
-                },
-                {
-                    "type": "file",
-                    "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/n/ncurses/lib32tinfo5_5.9+20140913-1bem1_amd64.deb",
-                    "sha256": "d01313e3f87dcd1f7d5581e443cb27bb257b60dded5880f9936e87c555b9e1b2",
-                    "dest": "lib32-debs"
-                },
-                {
-                    "type": "file",
-                    "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/n/ncurses/lib32ncurses5_5.9+20140913-1bem1_amd64.deb",
-                    "sha256": "7bc1c176a495b0720f5fb05139441667eb7193b9fe0acf60c2aa4a36d68fcfd5",
-                    "dest": "lib32-debs"
-                },
-                {
-                    "type": "file",
-                    "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/g/gcc-4.9/lib32gcc1_4.9.2-10ubuntu9endless4bem1_amd64.deb",
-                    "sha256": "dd0bc7e3fd5d5b337368708d2f5d4a89f061f5263637782805ea95a05ab2a978",
-                    "dest": "lib32-debs"
-                },
-                {
-                    "type": "file",
-                    "url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/g/gcc-4.9/lib32stdc++6_4.9.2-10ubuntu9endless4bem1_amd64.deb",
-                    "sha256": "dda44632e453739c17b984d501780d52d2614e5123de98e7b5fb0f86d7588bb5",
-                    "dest": "lib32-debs"
-                },
-                {
-                    "type": "shell",
-                    "commands": [
-                        "echo '== Unpacking Debian packages =='",
-                        "mkdir -p debroot lib32root /app/lib",
-                        "for i in jdk6-debs/*.deb ; do echo $i ; dpkg-deb -x $i debroot ; done",
-                        "for i in lib32-debs/*.deb ; do echo $i ; dpkg-deb -x $i lib32root ; done",
-                        "echo '== Copying 32-bit libraries =='",
-                        "mv lib32root/lib32/* lib32root/usr/lib32/* /app/lib"
-                    ]
-                },
                 {
                     "type": "file",
                     "path": "com.stencyl.Game.desktop"
