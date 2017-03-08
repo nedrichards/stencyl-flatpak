@@ -2,4 +2,7 @@
 
 http://www.stencyl.com/
 
-Right now you can export and run your games only in HTML5 option.
+## TODO:
+- Switch to a non endless runtime - for this we would need to add java, 
+  xdg-open, killall, libxext and libgc.
+- Make it run and export in Android and Flash
