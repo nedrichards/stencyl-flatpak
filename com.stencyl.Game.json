@@ -1,0 +1,53 @@
+{
+    "app-id": "com.stencyl.Game",
+    "runtime": "com.endlessm.Sdk",
+    "runtime-version": "eos3.1",
+    "sdk": "com.endlessm.Sdk",
+    "command": "stencyl",
+    "finish-args": [
+        "--socket=x11",
+        "--socket=pulseaudio",
+        "--share=ipc",
+        "--share=network",
+        "--device=all",
+        "--filesystem=host",
+        "--extra-data=Stencyl-64-full.tar.gz:c27d00dc83b5f443c35d785a0d22340f35c1cdb289c8cfe30417963475d4af29:207725021::http://mario.stencyl.net/public/Stencyl-64-full.tar.gz"
+    ],
+    "modules": [
+        {
+            "name": "resources",
+            "no-autogen": true,
+            "sources": [
+                {
+                    "type": "file",
+                    "path": "com.stencyl.Game.desktop"
+                },
+                {
+                    "type": "file",
+                    "path": "com.stencyl.Game.appdata.xml"
+                },
+                {
+                    "type": "file",
+                    "path": "com.stencyl.Game.png"
+                },
+                {
+                    "type": "file",
+                    "path": "stencyl.sh"
+                },
+                {
+                    "type": "file",
+                    "path": "firefox"
+                },
+                {
+                    "type": "file",
+                    "path": "apply_extra"
+                },
+                {
+                    "type": "file",
+                    "path": "resources-Makefile",
+                    "dest-filename": "Makefile"
+                }
+            ]
+        }
+    ]
+}
