@@ -40,6 +40,10 @@
                 },
                 {
                     "type": "file",
+                    "path": "StencylWorks.prefs"
+                },
+                {
+                    "type": "file",
                     "path": "apply_extra"
                 },
                 {
