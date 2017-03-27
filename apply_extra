@@ -1,3 +1,7 @@
 #!/bin/sh
 
 tar -xzvf Stencyl-64-full.tar.gz
+rm -rf Stencyl-64-full.tar.gz
+
+# Export stencyl icon
+ install -D /app/extra/data/other/icon-30x30.png /app/extra/export/share/icons/hicolor/64x64/apps/com.stencyl.Game.png
