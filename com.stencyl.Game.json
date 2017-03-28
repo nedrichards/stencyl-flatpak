@@ -28,10 +28,6 @@
                 },
                 {
                     "type": "file",
-                    "path": "com.stencyl.Game.png"
-                },
-                {
-                    "type": "file",
                     "path": "stencyl.sh"
                 },
                 {
