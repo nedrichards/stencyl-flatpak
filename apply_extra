@@ -6,6 +6,4 @@ rm -rf Stencyl-64-full.tar.gz
 # Export stencyl icon
 
 install -D /app/extra/data/other/icon-30x30.png /app/extra/export/share/icons/hicolor/64x64/apps/com.stencyl.Game.png
-install -D /app/temp/com.stencyl.Game.desktop /app/extra/export/share/applications/com.stencyl.Game.desktop
-install -D /app/temp/com.stencyl.Game.appdata.xml /app/extra/export/share/appdata/com.stencyl.Game.appdata.xml
 
