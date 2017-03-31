@@ -9,4 +9,3 @@ install -D /app/extra/data/other/icon-30x30.png /app/extra/export/share/icons/hi
 install -D /app/temp/com.stencyl.Game.desktop /app/extra/export/share/applications/com.stencyl.Game.desktop
 install -D /app/temp/com.stencyl.Game.appdata.xml /app/extra/export/share/appdata/com.stencyl.Game.appdata.xml
 
-rm -rf /app/temp/
