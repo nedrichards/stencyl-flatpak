@@ -1,8 +1,8 @@
 {
     "app-id": "com.stencyl.Game",
-    "runtime": "com.endlessm.Sdk",
-    "runtime-version": "eos3.1",
-    "sdk": "com.endlessm.Sdk",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "1.6",
+    "sdk": "org.freedesktop.Sdk",
     "command": "stencyl",
     "finish-args": [
         "--socket=x11",
@@ -10,17 +10,16 @@
         "--share=ipc",
         "--share=network",
         "--device=all",
-        "--filesystem=host",
-        "--extra-data=Stencyl-64-full.tar.gz:c27d00dc83b5f443c35d785a0d22340f35c1cdb289c8cfe30417963475d4af29:207725021::http://mario.stencyl.net/public/Stencyl-64-full.tar.gz"
+        "--filesystem=home",
+        "--extra-data=stencyl.tar.gz:c27d00dc83b5f443c35d785a0d22340f35c1cdb289c8cfe30417963475d4af29:207725021::http://mario.stencyl.net/public/Stencyl-64-full.tar.gz"
     ],
     "modules": [
         {
-            "name": "resources",
-            "no-autogen": true,
+            "name": "stencyl",
             "sources": [
                 {
                     "type": "file",
-                    "path": "placeholder.png"
+                    "path": "com.stencyl.Game.png"
                 },
                 {
                     "type": "file",
@@ -31,8 +30,22 @@
                     "path": "com.stencyl.Game.appdata.xml"
                 },
                 {
-                    "type": "file",
-                    "path": "stencyl.sh"
+                    "type": "script",
+                    "commands": ["#!/bin/bash",
+                                "set -eu",
+                                "# Set working directory on first startup.",
+                                "# Stencyl by default sets up workspace in /app/extra/Stencyl/",
+                                "# that is read only, so we get a warning notification.",
+                                "# This overrides the preferences on start, and sets working directory to $HOME.",
+                                "PREFS_DIR=\"$HOME/.StencylWorks\"",
+                                "if [[ ! -f \"${PREFS_DIR}/StencylWorks.prefs\" ]]; then",
+                                    "mkdir -p \"${PREFS_DIR}\"",
+                                    "cp /app/StencylPrefs/StencylWorks.prefs \"${PREFS_DIR}/StencylWorks.prefs\"",
+                                    "echo \"global.workdir=${HOME}\" >>\"${PREFS_DIR}/StencylWorks.prefs\"",
+                                "fi",
+                                "exec /app/extra/Stencyl"
+                            ],
+                    "dest-filename": "stencyl.sh"
                 },
                 {
                     "type": "file",
@@ -42,15 +55,42 @@
                     "type": "file",
                     "path": "StencylWorks.prefs"
                 },
+                /*
                 {
-                    "type": "file",
-                    "path": "apply_extra"
+                    "type": "extra-data",
+                    "filename": "stencyl.tar.gz",
+                    "only-arches": ["x86_64"],
+                    "url": "http://mario.stencyl.net/public/Stencyl-64-full.tar.gz",
+                    "sha256": "c27d00dc83b5f443c35d785a0d22340f35c1cdb289c8cfe30417963475d4af29",
+                    "size": 207725021
                 },
                 {
-                    "type": "file",
-                    "path": "resources-Makefile",
-                    "dest-filename": "Makefile"
+                    "type": "extra-data",
+                    "filename": "stencyl.tar.gz",
+                    "only-arches": ["i386"],
+                    "url": "http://mario.stencyl.net/public/Stencyl-full.tar.gz",
+                    "sha256": "1c8721ff146b42add0dd40812eae8c032f9ec852a0522a1ec65bb8f85796d09d",
+                    "size": 208739507
+                },
+                */
+                {
+                    "type": "script",
+                    "dest-filename": "apply_extra",
+                    "commands": [
+                        "tar -xzvf stencyl.tar.gz",
+                        "rm -rf stencyl.tar.gz",
+                        "install -D /app/extra/data/other/icon-30x30.png /app/extra/export/share/icons/hicolor/64x64/apps/com.stencyl.Game.png"
+                    ]
                 }
+            ],
+            "post-install": [
+                "install -D firefox /app/bin/firefox",
+	            "install -D stencyl.sh /app/bin/stencyl",
+                "install -D apply_extra /app/bin/apply_extra",
+                "install -D StencylWorks.prefs /app/StencylPrefs/StencylWorks.prefs",
+	            "install -D com.stencyl.Game.desktop /app/share/applications/com.stencyl.Game.desktop",
+	            "install -D com.stencyl.Game.appdata.xml /app/share/appdata/com.stencyl.Game.appdata.xml",
+	            "install -D com.stencyl.Game.png /app/share/icons/hicolor/64x64/apps/com.stencyl.Game.png"
             ]
         }
     ]
